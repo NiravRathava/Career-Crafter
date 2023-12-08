@@ -1,8 +1,10 @@
 import express from "express";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
-import userRoutes from "./routes/AuthRoutes.js";
 import { errorHandler } from "./controllers/ErrorHandler.js";
+import authRoutes from "./routes/AuthRoutes.js";
+import userRoutes from "./routes/UserRoutes.js";
+
 const app = express();
 const port = 8000;
 dotenv.config();
@@ -21,6 +23,8 @@ app.listen(port, () => {
   connectToMongo();
 });
 
-app.use(express.json())
-app.use("/api/auth", userRoutes);
-app.use(errorHandler)
+app.use(express.json());
+app.use("/api/auth", authRoutes);
+app.use("/api/users", userRoutes);
+
+app.use(errorHandler);
