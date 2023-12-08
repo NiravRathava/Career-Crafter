@@ -21,4 +21,6 @@ app.listen(port, () => {
   connectToMongo();
 });
 
-app.use("api/auth", userRoutes);
+app.use(express.json())
+
+app.use("/api/auth", userRoutes);
