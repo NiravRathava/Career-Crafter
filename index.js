@@ -2,7 +2,7 @@ import express from "express";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
 import userRoutes from "./routes/AuthRoutes.js";
-
+import { errorHandler } from "./controllers/ErrorHandler.js";
 const app = express();
 const port = 8000;
 dotenv.config();
@@ -22,5 +22,5 @@ app.listen(port, () => {
 });
 
 app.use(express.json())
-
 app.use("/api/auth", userRoutes);
+app.use(errorHandler)

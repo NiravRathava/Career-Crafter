@@ -6,7 +6,7 @@ const signToken = (id) => {
   return jwt.sign({ id }, process.env.JWT_SECRET);
 };
 
-export const signUp = async (req, res) => {
+export const signUp = async (req, res,next) => {
   try {
     const user = await User.create({
       email: req.body.email,
@@ -17,8 +17,7 @@ export const signUp = async (req, res) => {
     //sending response
     res.status(201).json({ user, token });
   } catch (error) {
-    console.error("Error during signup:", error.message);
-    res.status(500).json({ error: "Internal Server Error" });
+    next(error)
   }
 };
 export const signIn = async () => {};
