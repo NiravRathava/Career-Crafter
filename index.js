@@ -4,6 +4,7 @@ import mongoose from "mongoose";
 import { errorHandler } from "./controllers/ErrorHandler.js";
 import authRoutes from "./routes/AuthRoutes.js";
 import userRoutes from "./routes/UserRoutes.js";
+import userDetailsRoutes from "./routes/UserDetailRoutes.js"
 
 const app = express();
 const port = 8000;
@@ -19,12 +20,13 @@ const connectToMongo = async () => {
   }
 };
 app.listen(port, () => {
-  console.log(` app listening on port ${port}`);
+  console.log(`app listening on port ${port}`);
   connectToMongo();
 });
 
 app.use(express.json());
 app.use("/api/auth", authRoutes);
 app.use("/api/users", userRoutes);
+app.use("/api/usersdetails", userDetailsRoutes);
 
 app.use(errorHandler);
