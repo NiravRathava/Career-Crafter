@@ -4,10 +4,10 @@ import mongoose from "mongoose";
 import { errorHandler } from "./controllers/ErrorHandler.js";
 import authRoutes from "./routes/AuthRoutes.js";
 import userRoutes from "./routes/UserRoutes.js";
-import userDetailsRoutes from "./routes/UserDetailRoutes.js"
-import userEducationRoutes from "./routes/EducationRoutes.js"
-import userExperienceRoutes from "./routes/ExperienceRoutes.js"
-
+import userDetailsRoutes from "./routes/UserDetailRoutes.js";
+import userEducationRoutes from "./routes/EducationRoutes.js";
+import userExperienceRoutes from "./routes/ExperienceRoutes.js";
+import userSkillRoutes from "./routes/SkillRoutes.js";
 
 const app = express();
 const port = 8000;
@@ -33,6 +33,6 @@ app.use("/api/users", userRoutes);
 app.use("/api/usersdetails", userDetailsRoutes);
 app.use("/api/userexperience", userExperienceRoutes);
 app.use("/api/usereducation", userEducationRoutes);
-
+app.use("/api/skill",userSkillRoutes)
 
 app.use(errorHandler);
