@@ -1,5 +1,11 @@
 import { catchAsync } from "../utils/catchAsync.js";
-import appError from "../utils/appError.js";
+import { appError } from "../utils/appError.js";
+
+export const getAll = (model) =>
+  catchAsync(async (req, res, next) => {
+    const doc = await model.find();
+    res.status(200).json({ doc });
+  });
 
 export const getOne = (Model) =>
   catchAsync(async (req, res, next) => {
