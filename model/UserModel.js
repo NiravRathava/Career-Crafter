@@ -33,10 +33,10 @@ userSchema.pre("save", async function (next) {
   }
 });
 //method for verify userEntered password and the password saved in DB
-userSchema.methods.verifyPassword=(async function (
+userSchema.methods.verifyPassword = async function (
   enterdPassword,
   savedPassword
 ) {
   return await bcrypt.compare(enterdPassword, savedPassword);
-});
+};
 export default mongoose.model("User", userSchema);
