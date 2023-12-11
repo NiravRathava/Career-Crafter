@@ -5,6 +5,9 @@ import { errorHandler } from "./controllers/ErrorHandler.js";
 import authRoutes from "./routes/AuthRoutes.js";
 import userRoutes from "./routes/UserRoutes.js";
 import userDetailsRoutes from "./routes/UserDetailRoutes.js"
+import userEducationRoutes from "./routes/EducationRoutes.js"
+import userExperienceRoutes from "./routes/ExperienceRoutes.js"
+
 
 const app = express();
 const port = 8000;
@@ -28,5 +31,8 @@ app.use(express.json());
 app.use("/api/auth", authRoutes);
 app.use("/api/users", userRoutes);
 app.use("/api/usersdetails", userDetailsRoutes);
+app.use("/api/userexperience", userExperienceRoutes);
+app.use("/api/usereducation", userEducationRoutes);
+
 
 app.use(errorHandler);
