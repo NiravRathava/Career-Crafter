@@ -8,7 +8,7 @@ import {
 import { verifyToken } from "../utils/VerifyToken.js";
 const router = express.Router();
 
-router.get("/", verifyToken,getUsers);
-router.route("/:id").get(getUser).put(updateUser).delete(deleteUser);
+router.get("/",getUsers);
+router.route("/:id").get(getUser).put(verifyToken,updateUser).delete(verifyToken,deleteUser);
 
 export default router;

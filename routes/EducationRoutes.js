@@ -5,13 +5,14 @@ import {
   updateEducation,
   deleteEducation,
 } from "../controllers/EducationController.js";
+import { verifyToken } from "../utils/VerifyToken.js";
 
 const router = express.Router();
 
-router.route("/").post(createEducation).get(getEducation);
+router.route("/").post(verifyToken,createEducation).get(verifyToken,getEducation);
 router
   .route("/:id")
-  .put(updateEducation)
-  .delete(deleteEducation);
+  .put(verifyToken,updateEducation)
+  .delete(verifyToken,deleteEducation);
 
 export default router;

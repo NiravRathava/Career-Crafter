@@ -5,10 +5,11 @@ import {
   updateExperience,
   deleteExperience,
 } from "../controllers/ExperienceController.js";
+import { verifyToken } from "../utils/VerifyToken.js";
 
 const router = express.Router();
 
-router.route("/").post(createExperience).get(getExperience);
-router.route("/:id").put(updateExperience).delete(deleteExperience);
+router.route("/").post(verifyToken,createExperience).get(verifyToken,getExperience);
+router.route("/:id").put(verifyToken,updateExperience).delete(verifyToken,deleteExperience);
 
 export default router;
