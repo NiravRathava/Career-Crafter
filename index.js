@@ -8,6 +8,8 @@ import userDetailsRoutes from "./routes/UserDetailRoutes.js";
 import userEducationRoutes from "./routes/EducationRoutes.js";
 import userExperienceRoutes from "./routes/ExperienceRoutes.js";
 import userSkillRoutes from "./routes/SkillRoutes.js";
+import userProjectRoutes from "./routes/ProjectRoutes.js"
+import postRoutes from "./routes/PostRoutes.js"
 
 const app = express();
 const port = 8000;
@@ -34,5 +36,8 @@ app.use("/api/usersdetails", userDetailsRoutes);
 app.use("/api/userexperience", userExperienceRoutes);
 app.use("/api/usereducation", userEducationRoutes);
 app.use("/api/skill",userSkillRoutes)
+app.use("/api/project",userProjectRoutes)
+app.use("/api/post",postRoutes)
+
 
 app.use(errorHandler);

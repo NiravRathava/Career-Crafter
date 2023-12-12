@@ -1,4 +1,4 @@
-import Project from "../model/ProjectModel";
+import Project from "../model/ProjectModel.js";
 import { getAll, createOne, updateOne, deleteOne } from "./crudController.js";
 
 export const createProject = createOne(Project);
