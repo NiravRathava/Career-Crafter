@@ -10,6 +10,7 @@ import userExperienceRoutes from "./routes/ExperienceRoutes.js";
 import userSkillRoutes from "./routes/SkillRoutes.js";
 import userProjectRoutes from "./routes/ProjectRoutes.js"
 import postRoutes from "./routes/PostRoutes.js"
+import messageRoutes from "./routes/MessageRoutes.js"
 
 const app = express();
 const port = 8000;
@@ -38,6 +39,7 @@ app.use("/api/usereducation", userEducationRoutes);
 app.use("/api/skill",userSkillRoutes)
 app.use("/api/project",userProjectRoutes)
 app.use("/api/post",postRoutes)
+app.use("/api/message",messageRoutes)
 
 
 app.use(errorHandler);
